@@ -4,5 +4,5 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This is under construction
+  Hey there! This is under construction.
 </p>
