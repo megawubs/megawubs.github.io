@@ -114,9 +114,9 @@ $ git push -u origin master
  
 ### Domain name fun
 
-You could leave it at this. In fact, it's perfectly fine to host your blog like so. But, for some extra sugar. Or, 
-when you already have a host name, you can in fact couple your github pages website to your existing domain name. To
-do so, you need a few things.
+You could leave it at this. It's perfectly fine to host your blog this way. But, for some extra sugar. Or, 
+when you already have a host name, you can in couple your Github pages website to your existing domain name. To
+do so, you need to do a few things.
 
 You need to configure CNAME record with your DNS provider. Sounds scary right? Well, actually it's not. It's just 
 nerd words for telling your DNS provider (most of the time the same dudes where you have your hosting/web-server) 
