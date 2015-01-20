@@ -85,7 +85,7 @@ itself.
  
 #### Setting up Github pages
  
- To be able to setup Github pages, you need a Github account. To do that, go to [Github][3] and follow the 
+ To be able to setup Github pages, you need a Github account. To get one, go to [Github][3] and follow the 
  instructions. If you already have one, cool! Just create a new repository with your name appended with `.github.io` 
  so, for me it would be `megawubs.github.io`. Set it to public and don't add a readme. When all of this is done, go 
  back to your terminal and inside your Jekyll root do the following commands
