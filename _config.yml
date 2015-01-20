@@ -1,5 +1,5 @@
 # Dependencies
-markdown:         redcarpet
+markdown:         kramdown
 highlighter:      pygments
 
 # Permalinks
@@ -10,7 +10,7 @@ relative_permalinks: true
 title:            Hello
 tagline:          "It's just me"
 description:      'Welcome, read about my life and what intrests me'
-url:              http://blog.wubsinfo.nl/
+url:              http://blog.wubsinfo.nl
 baseurl:          /
 
 author:
