@@ -7,7 +7,7 @@ categories: jekyll
 
 ### I wanted to write, not code
 
-*If you want read about setting up a Jekyll powered blog, start reading [here][4].*
+*If you want to read about setting up a Jekyll powered blog, start reading [here][4].*
 
 For a while now I've been thinking about starting a blog. But before I could write my thoughts down I had to have a 
 system that could manage all of that. Knowing myself, I knew I would put hours and hours into the process of 
