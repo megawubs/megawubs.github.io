@@ -22,7 +22,7 @@ does take a few extra thoughts to get something easy done in a language like Jav
 containing an array of int's. Or is it my first int array filled with arrays of ints? I really have no idea how it's 
 named but the syntax was this: 
  
-{% highlight java %} I
+{% highlight java %}
 int[][] ints = new int[9][9];
 {% endhighlight java %}
 
