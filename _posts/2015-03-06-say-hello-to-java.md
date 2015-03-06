@@ -37,5 +37,5 @@ After two challenging exercises I found out that Java isn't really that differen
 Orient Programming. It just forces you where PHP lets you choose what you want to do. I think that's the bottom line.
 Where I now have to search for "how to do x in Java", where the same thing in PHP would be plain obvious for me.
 PHP gives you a choice, Java just enforces a bunch of OO laws onto you. I'm happy I've learned these "laws" within 
-PHP. Otherwise I wouldn't know if  I could have understood them all. Nonetheless, I'm curious when the moment comes 
-that PHP seems weird, and Java comes naturally to me. If that moment will ever come.
+PHP. Otherwise I wouldn't know if  I could have understood them all. Nonetheless, I'm curious if there ever will be a
+time that Java comes naturally to me.
