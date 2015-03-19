@@ -5,8 +5,10 @@ author: MegaWubs
 categories: laravel
 ---
 
-Laravel 5 just came out and I'm going to create a application with it from scratch and document my process
+Laravel 5 came out and I'm going to create a application with it from scratch and document my process
 here. For simplicity I'm going to give the project a code name of Andrew.
+I'll start with the basic requirements and cover topics like Vagrant, Homestead, Composer, Git, The Laravel CLI, 
+Hosting and PHPStorm.
 
 ## Homestead
 Homestead is the default virtual machine that's specifically build for Laravel and other PHP projects. It let's you 
@@ -19,13 +21,13 @@ might be a bit complicated to understand, with the homestead CLI (Command Line I
 box itself. But I'll explain it like this, the Vagrant box called Homestead is a pre configured virtual machine that 
 gets managed by the Homestead CLI, so they are two completely different things.
 
-To add the Homestead virtual box to Vagrant, type the following in your terminal:
+To add the Homestead virtual box to Vagrant, type the following in your terminal (after installing [Vagrant][vagrant]):
 {% highlight bash %}
 $ vagrant box add laravel/homestead
 {% endhighlight bash %}
 
 ### Composer
-To be able to install the Homestead CLI you need to install [Composer][composer]. Composer is the dependency 
+To be able to install the Homestead CLI globally you need to install [Composer][composer]. Composer is the dependency 
 manager for PHP. To install Composer globally paste the following in your terminal:
 
 {% highlight bash %}
@@ -33,13 +35,13 @@ $ curl -sS https://getcomposer.org/installer | php
 $ mv composer.phar /usr/local/bin/composer
 {% endhighlight bash %}
 
-Which you can install the Homestead CLI for managing your Homestead virtual box with the 
+Now you can install the Homestead CLI for managing your Homestead virtual box with the 
 following command:
 
 {% highlight bash %}
 $ composer global require "laravel/homestead=~2.0"
 {% endhighlight bash %}
-
+Note the `global` keyword
 
 And when it's done installing be sure to add `~/.composer/vendor/bin` to your path! Otherwise the Homestead CLI won't
 be usable. You can do this by either editing your `~/.bashrc` or `~/.zshrc` file and add the following line to it:
@@ -94,7 +96,7 @@ variables:
 
 This file lets you configure your Homestead virtual machine. The first three lines are obvious, just up the 
 memory or cpu's when you think you need it. The authorize and key parts are for authentication with the virtual 
-machine, if you've made an rsa key once before you probably won't have to do anything here. If not, and you are on a 
+machine, if you have made an rsa key once before you probably won't have to do anything here. If not, and you are on a 
 Mac or Linux computer you can do it with the following command:
 
 {% highlight bash %}
@@ -106,12 +108,12 @@ the `map` key to a local folder on the host machine that's mapped to a folder on
  to 
 chose the folder you place all of your laravel sites in. For me that would be `~/projects/PHP/laravel`. The path 
 you provide by `to` will be the path where your code is available inside the virtual machine. This is directly used 
-under the `sites` key. Here you provide a name for a site (like `andrew.app`) and under `to` you set the path to the 
-public folder of the site inside the virtual machine. So, in the example above it'll be 
+under the `sites` list. Here you provide a name for a site (like `andrew.app`) under `map` and under `to` you set the 
+path to the public folder of the site inside the virtual machine. So, in the example above it'll be 
 `/home/vagrant/Code/andrew/public` and not `/Users/megawubs/Code/andrew/public`, because the last path is on my host 
 machine and the `to` path needs to be on the guest machine. Otherwise, Nginx won't be able to find the folder!
 
-When you are done editing your Homestead.yaml file, save it and go back to your terminal. We can now proceed with the 
+When you are done editing your homestead.yaml file, save it and go back to your terminal. We can now proceed with the 
 next step.
 
 
@@ -125,7 +127,7 @@ To be able to access your site(s) though your browser, you need to tell the host
 {% endhighlight text %}
 
 When you add more sites to the `sites` list in the Homestead.yaml file, you also need to add it to your `/etc/hosts` 
-file, otherwise Ngnix won't know whitch site to load based on the requested url.
+file, otherwise Ngnix won't know which site to load based on the requested url.
 
 ## Laravel CLI
 
@@ -168,8 +170,7 @@ $ homestead destroy
 
 The code for this project is going to be managed using Git. To install git for your platform, go to 
 [this site][git-link] and follow the instructions. Once you are done installing Git, go to the folder you've just 
-installed Laravel 
-in and do the following commands:
+installed Laravel in and do the following commands:
 
 {% highlight bash %} 
 $ git init 
@@ -259,7 +260,7 @@ after saving the file, going to `www.andrew.com` in your browser should give you
 
 ## PHPStorm Setup
 
-Install IDE helper, Add Homestead as a remote executableTypeTableSeeder
+Install IDE helper, Add Homestead as a remote server
 
 
 [vagrant]: https://www.vagrantup.com/
