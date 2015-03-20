@@ -28,6 +28,9 @@
  *
  * Update the foundational and global aspects of the page.
  */
+#me {
+    display: none;
+}
 
 html {
     font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -67,6 +70,10 @@ html {
         bottom: 0;
         width: 18rem;
         text-align: left;
+    }
+
+    #me {
+        display: block;
     }
 }
 
