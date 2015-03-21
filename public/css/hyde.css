@@ -304,10 +304,15 @@ a.sidebar-nav-item:focus {
     background-color: #FFF;
     color: #2D3037;
     -webkit-box-shadow: 0px 4px 4px 0px rgba(50, 50, 50, 0.75);
+    text-align: left;
 }
 
 .theme-custom .sidebar .sidebar-nav-item {
     color: #4D687B;
+}
+
+.theme-custom .container.sidebar-sticky {
+    padding-left: 0;
 }
 
 /*
