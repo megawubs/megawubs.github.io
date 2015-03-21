@@ -59,14 +59,14 @@ html {
 
 body {
     color: #515151;
-    background-color: #fff;
+    background-color: #FFF;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-    /* color: #268bd2; */
+    color: #4D687B;
     text-decoration: none;
 }
 
@@ -178,14 +178,14 @@ pre {
     white-space: pre-wrap;
     word-break: break-all;
     word-wrap: break-word;
-    background-color: #f9f9f9;
+    background-color: rgba(247, 246, 246, 0.38);
 }
 
 pre code {
     padding: 0;
     font-size: 100%;
     color: inherit;
-    background-color: transparent;
+    background-color: rgba(253, 244, 244, 0);
 }
 
 /* Pygments via Jekyll */
@@ -401,7 +401,7 @@ tbody tr:nth-child(odd) th {
 }
 
 .related-posts li a:hover {
-    color: #268bd2;
+    color: #467291;
     text-decoration: none;
 }
 

@@ -169,10 +169,21 @@ a.sidebar-nav-item:focus {
     }
 }
 
+@media (min-width: 55em) {
+
+    .layout-reverse .content.no-sidebar {
+        margin-left: 10rem;
+    }
+}
+
 @media (min-width: 64em) {
     .layout-reverse .content {
         margin-left: 4rem;
         margin-right: 22rem;
+    }
+
+    .layout-reverse .content.no-sidebar {
+        margin-left: 22rem;
     }
 }
 
@@ -264,3 +275,52 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
     color: #8f5536;
 }
+
+.theme-custom {
+    background-color: #F5EFEF !important;
+}
+
+.theme-custom .content .post, .theme-custom .content .related {
+    background-color: #FFF;
+    box-shadow: 1px;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(50, 50, 50, 0.75);
+    padding: 25px;
+}
+
+.theme-custom .content .post .post-title {
+    color: #2D3037;
+}
+
+.theme-custom .post a {
+    color: #4D687B;
+}
+
+.theme-custom pre {
+    margin-left: -25px;
+    margin-right: -25px;
+}
+
+.theme-custom .sidebar {
+    background-color: #FFF;
+    color: #2D3037;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(50, 50, 50, 0.75);
+}
+
+.theme-custom .sidebar .sidebar-nav-item {
+    color: #4D687B;
+}
+
+/*
+
+vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
+
+*/
+
+
+
+
+
+
+
+
+
