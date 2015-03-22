@@ -165,7 +165,7 @@ a.sidebar-nav-item:focus {
 
     .layout-reverse .content {
         margin-left: 2rem;
-        margin-right: 20rem;
+        margin-right: 10rem;
     }
 }
 
@@ -183,8 +183,10 @@ a.sidebar-nav-item:focus {
     }
 
     .layout-reverse .content.no-sidebar {
-        margin-left: 22rem;
-    }
+        margin-left: 12rem;
+    
+        margin-right: 10rem;
+}
 }
 
 /*
