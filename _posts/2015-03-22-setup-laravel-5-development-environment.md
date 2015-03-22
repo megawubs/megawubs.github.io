@@ -1,19 +1,19 @@
 ---
-title: Creating A Laravel 5 Application From Scratch
+title: Setup Laravel 5 Development Environment 
 layout: post
 author: MegaWubs
 categories: laravel
 ---
 
-Laravel 5 came out and I'm going to create a application with it from scratch and document my process
-here. For simplicity I'm going to give the project a code name of Andrew.
-I'll start with the basic requirements and cover topics like Vagrant, Homestead, Composer, Git, The Laravel CLI, 
-Hosting and PHPStorm.
+Laravel 5 is a few weeks old now. I've build one app with it so far, and I'm liking it! This post is about setting 
+up your dev environment, the Laravel way! The imaginary project I'm starting is named Andrew. I'll start with the 
+basic requirements and cover topics like Vagrant, Homestead, Composer, Git, The Laravel CLI and a bit about hosting 
+your just installed Laravel 5 application.
 
 ## Homestead
 Homestead is the default virtual machine that's specifically build for Laravel and other PHP projects. It let's you 
 have one central virtual machine that serves all of your local projects. To get started with Homestead you have to 
-install [Virtualbox][virtualbox] and [Vagrant][vagrant] because, after all, Homestead is just a Vagrant box. Follow 
+install [Virtualbox][virtualbox] and [Vagrant][vagrant] after all, Homestead is just a Vagrant box. Follow 
 the instructions on the site and get back here when you're done installing them.
 
 Before we move onto installing and setting up Homestead, we need to add the Homestead Vagrant box to Vagrant. This 
@@ -35,13 +35,12 @@ $ curl -sS https://getcomposer.org/installer | php
 $ mv composer.phar /usr/local/bin/composer
 {% endhighlight bash %}
 
-Now you can install the Homestead CLI for managing your Homestead virtual box with the 
-following command:
+Now you can install the Homestead CLI for managing your Homestead virtual box with the following command:
 
 {% highlight bash %}
 $ composer global require "laravel/homestead=~2.0"
 {% endhighlight bash %}
-Note the `global` keyword
+Note the `global` keyword!
 
 And when it's done installing be sure to add `~/.composer/vendor/bin` to your path! Otherwise the Homestead CLI won't
 be usable. You can do this by either editing your `~/.bashrc` or `~/.zshrc` file and add the following line to it:
@@ -78,7 +77,7 @@ keys:
     - ~/.ssh/id_rsa
  
 folders:
-     - map: /Users/megawubs/Code
+     - map: /Users/bwubs/Code
        to: /home/vagrant/Code
  
 sites:
@@ -97,25 +96,23 @@ variables:
 This file lets you configure your Homestead virtual machine. The first three lines are obvious, just up the 
 memory or cpu's when you think you need it. The authorize and key parts are for authentication with the virtual 
 machine, if you have made an rsa key once before you probably won't have to do anything here. If not, and you are on a 
-Mac or Linux computer you can do it with the following command:
+Mac or Linux computer, you can do it with the following command:
 
 {% highlight bash %}
 $ ssh-keygen -t rsa -C "your@email.com"
 {% endhighlight bash %}
 
 What's more interesting in the yaml file are the `folders` and `sites` configuration. Under `folders` you can set the
-the `map` key to a local folder on the host machine that's mapped to a folder on the virtual/guest machine. I recommend
- to 
-chose the folder you place all of your laravel sites in. For me that would be `~/projects/PHP/laravel`. The path 
-you provide by `to` will be the path where your code is available inside the virtual machine. This is directly used 
-under the `sites` list. Here you provide a name for a site (like `andrew.app`) under `map` and under `to` you set the 
-path to the public folder of the site inside the virtual machine. So, in the example above it'll be 
-`/home/vagrant/Code/andrew/public` and not `/Users/megawubs/Code/andrew/public`, because the last path is on my host 
+the `map` key to a local folder on the host machine that's mapped to a folder on the guest machine. I recommend
+to chose the folder you place all of your laravel sites/php projects in. For me that would be `~/projects/PHP/laravel`. 
+The path you provide by `to` will be the path where your code is available inside the virtual machine. This is 
+directly used under the `sites` list. Here we provide the name `andrew.app` under `map` and under 
+`to` we set the path to the public folder of the site inside the virtual machine. So, in the example above it'll be 
+`/home/vagrant/Code/andrew/public` and not `/Users/bwubs/Code/andrew/public`, because the last path is on my host 
 machine and the `to` path needs to be on the guest machine. Otherwise, Nginx won't be able to find the folder!
 
 When you are done editing your homestead.yaml file, save it and go back to your terminal. We can now proceed with the 
 next step.
-
 
 ### Site configuration
 To be able to access your site(s) though your browser, you need to tell the host machine that the url `http://andrew
@@ -127,12 +124,12 @@ To be able to access your site(s) though your browser, you need to tell the host
 {% endhighlight text %}
 
 When you add more sites to the `sites` list in the Homestead.yaml file, you also need to add it to your `/etc/hosts` 
-file, otherwise Ngnix won't know which site to load based on the requested url.
+file, otherwise Ngnix won't know the site to load based on the requested url.
 
 ## Laravel CLI
 
 Because we already installed Composer, this step is going to be a lot quicker. First navigate to the folder you want 
-to create the new project in (in this example, it would be `/Users/megawubs/Code/`).
+to create the new project in (in this example, it would be `/Users/bwubs/Code/`).
 To install the Laravel CLI and create your first Laravel project, you only have to execute two commands in the terminal.
  
  {% highlight bash %}
@@ -164,8 +161,6 @@ If something is wrong, you can always destroy the machine with the following com
 $ homestead destroy
 {% endhighlight bash %}
  
-
-
 ## Git
 
 The code for this project is going to be managed using Git. To install git for your platform, go to 
@@ -176,9 +171,37 @@ installed Laravel in and do the following commands:
 $ git init 
 $ git add .
 $ git commit -am "Initial Commit - project Andrew"
-$ git remote add origin [your git origin url here]
+$ git remote add origin git@gitlab.com:bwubs/andrew.git
 $ git push
 {% endhighlight bash %}
+
+To be able to add a remote origin you need to have an account on some git website. For this project i've chosen 
+Gitlab, as it has private repo's. Just add your repo url after `git remote add origin` and it should be fine!
+  
+### Deploy with git
+
+Do you remember the days you had to deploy using FTP? Ugh... I still have nightmares from that time! Gladly, we can 
+do things different when we use Git!
+
+
+To deploy our application we simply ssh into our server and make a user for the website:
+
+{% highlight bash %}
+$ adduser andrew
+{% endhighlight bash %}
+
+Next, go to the folder `/home/andrew/site`. Now copy your remote url form the git repo you have created, for me that 
+is `git@gitlab.com:bwubs/andrew.git` and type:
+
+{% highlight bash %}
+$ git clone git@gitlab.com:bwubs/andrew.git .
+{% endhighlight bash %}
+
+This should pull in the files you just committed on your development machine. Be sure to run: `composer install` AND 
+NOT `update`! `composer update` will _update_ all dependencies, meaning that you might get different versions of 
+dependencies on your production environment and your development machine. The `composer.lock` file ensures that 
+`composer install` installs the same version of the dependencies you have locally. Even if there is a new version 
+released. So, never add `composer.lock` to your `.gitignore` file!
 
 ## Hosting
 
@@ -228,13 +251,13 @@ With he two directives, the file becomes:
       ServerAdmin webmaster@localhost
       ServerName andrew.com
       ServerAlias www.andrew.com
-      DocumentRoot /var/www/html
+      DocumentRoot /var/www/andrew.com
       ErrorLog ${APACHE_LOG_DIR}/error.log
       CustomLog ${APACHE_LOG_DIR}/access.log combined
   </VirtualHost>
 {% endhighlight text %} 
 
-We can let apache know that the site should be enabled with the following commands:
+Now we can let apache know that the site should be enabled with the following commands:
 
 {% highlight bash %} 
 $ sudo a2ensite andrew.com.conf
@@ -255,12 +278,10 @@ add the following line
 [ip-of-server] andrew.com
 {% endhighlight text %} 
 
-after saving the file, going to `www.andrew.com` in your browser should give you a "Hello World!" message!
+After saving the file, going to `www.andrew.com` in your browser should give you a "Hello World!" message!
 
 
-## PHPStorm Setup
 
-Install IDE helper, Add Homestead as a remote server
 
 
 [vagrant]: https://www.vagrantup.com/
