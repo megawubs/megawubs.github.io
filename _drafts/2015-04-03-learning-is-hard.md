@@ -1,5 +1,5 @@
 ---
-title: Taming XDebug
+title: Learning is Hard
 layout: post
 author: MegaWubs
 categories: 
