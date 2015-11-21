@@ -1,0 +1,49 @@
+<div class="navigation closed">
+    <div id="arrows">
+        <!--<i class="fa fa-arrow-left"></i>-->
+
+        {% if page.url != '/' %}
+        <i class="fa fa-bars closed"></i>
+        {% endif %}
+        <a href="/"><i class="fa fa-home"></i></a>
+        <!--<i class="fa fa-arrow-right"></i>-->
+    </div>
+    <ul id="headers" class="">
+
+    </ul>
+</div>
+
+<script>
+    $(function ($) {
+        return $(".container > .post h2, .container > .post h3, .container > .post h4, .container > .post h5, .container > .post h6").each(function (i, el) {
+            var $el, icon, id, text, $headers;
+            $el = $(el);
+            $headers = $('#headers');
+            text = $el.text();
+            console.log(text);
+            id = $el.attr('id');
+            icon = '<i class="fa fa-link"></i>';
+            $headers.append('<li><a href="#' + id + '">' + text + '</a> </li>');
+            if (id) {
+                return $el.html($("<a />").addClass("header-link").attr("href", "#" + id).html(text + " " + icon));
+            }
+        });
+    });
+
+    $(function ($) {
+        var $navigation = $('.navigation');
+        $('.fa-arrow-left').click(function () {
+            window.history.back();
+        });
+
+        $('.fa-arrow-right').click(function () {
+            window.history.forward();
+        });
+
+        $('.fa-bars').click(function () {
+            $(this).toggleClass('closed');
+            $navigation.toggleClass('closed');
+
+        });
+    });
+</script>

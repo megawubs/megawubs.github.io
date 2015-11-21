@@ -119,7 +119,7 @@ strong {
 }
 
 /* Lists */
-ul, ol, dl {
+.navigation {
     margin-top: 0;
     margin-bottom: 1rem;
 }

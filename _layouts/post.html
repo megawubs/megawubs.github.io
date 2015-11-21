@@ -8,6 +8,7 @@ layout: default-nosidebar
     {{ content }}
 </div>
 
+
 <div class="related">
     <h2>Related Posts</h2>
     <ul class="related-posts">
@@ -23,18 +24,4 @@ layout: default-nosidebar
         {% endfor %}
     </ul>
 </div>
-<script>
-    $(function () {
-        return $("h2, h3, h4, h5, h6").each(function (i, el) {
-            var $el, icon, id, text;
-            $el = $(el);
-            text = $el.text();
-            console.log(text);
-            id = $el.attr('id');
-            icon = '<i class="fa fa-link"></i>';
-            if (id) {
-                return $el.html($("<a />").addClass("header-link").attr("href", "#" + id).html(text + " " + icon));
-            }
-        });
-    });
-</script>
+
