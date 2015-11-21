@@ -3,7 +3,9 @@ title: A new Challenge
 layout: post
 author: MegaWubs
 categories: learning
+published: true
 ---
+
 
 During my first education after high school I got into software development through simple PHP courses. The education itself didn't provide the amount of depth I needed to understand programming as a whole. So, after my teachers told me they couldn't teach me anything new, I turned to the web to learn all about it. Days after days I watched tutorials, read blog posts and challenged myself to write better and cleaner code. This investment paid off.
 
