@@ -1,6 +1,10 @@
 ---
-published: false
+published: true
+layout: post
+author: MegaWubs
+categories: Docker
 ---
+
 
 ## How to Work With Docker on Mac OS X
 
