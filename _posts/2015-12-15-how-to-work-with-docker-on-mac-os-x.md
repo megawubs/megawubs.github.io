@@ -5,9 +5,6 @@ author: MegaWubs
 categories: Docker
 ---
 
-
-## How to Work With Docker on Mac OS X
-
 In my previous post about Docker I wrote that my setup was far from ideal. This week that changed radically. I’ve finally found the way to develop with Docker on my mac, no full blown VM involved!
 
 After weeks and weeks of searching, trial and error I gave it up last week. The solution I had backfired on me and I went all in on the Linux Mint virtual machine installed on my Mac. No more issues with mounted volumes or sftp/rsync syncing from mac to the VM. Just everything directly in the VM, even PHPStorm. Luckily I got coherence working so it wasn’t a complete pain in the ass. 
