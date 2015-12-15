@@ -20,4 +20,4 @@ How it works? It removes the terribly slow `/Users` vboxshare in your docker mac
 
 Now, I can work completely from my Mac. No Linux Mint involved. I can even work with PHPStorm normally without it complaining that it’s working from a remote folder, or getting stuck on indexing the remote folder. 
 
-And did I mention that it’s fast? Like, amazingly vast? The web application I develop is now even faster compared to working form inside the Linux Mint VM. Where it first had a page load of 200 to 600 ms, it now has a page load of 100 ms or less. This is a huge speedup compared to vboxshare’s 1.5 seconds load time.
+And did I mention that it’s fast? Like, amazingly fast? The web application I develop is now even faster compared to working form inside the Linux Mint VM. Where it first had a page load of 200 to 600 ms, it now has a page load of 100 ms or less. This is a huge speedup compared to vboxshare’s 1.5 seconds load time.
